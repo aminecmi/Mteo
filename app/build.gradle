@@ -74,13 +74,18 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.1.1'
     implementation 'com.github.bumptech.glide:okhttp3-integration:4.1.1'
 
+
+    // Room + lifecycle
     implementation "androidx.lifecycle:lifecycle-livedata:2.2.0-alpha02"
     implementation "androidx.lifecycle:lifecycle-common-java8:2.2.0-alpha02"
-
     implementation "androidx.room:room-runtime:2.2.0-alpha01"
     kapt "androidx.room:room-compiler:2.2.0-alpha01"
-
     implementation "android.arch.work:work-runtime-ktx:1.0.1"
+
+
+    // Dialog for adding a new location
+    implementation 'com.afollestad.material-dialogs:core:3.1.0'
+    implementation 'com.afollestad.material-dialogs:input:3.1.0'
 }
 
 

@@ -13,8 +13,11 @@ import androidx.core.content.ContextCompat
 import androidx.room.Room
 import bou.amine.apps.mteo.api.DarkSkyApi
 import bou.amine.apps.mteo.api.ForecastResponse
+import bou.amine.apps.mteo.persistence.MIGRATION_1_2
 import bou.amine.apps.mteo.persistence.database.AppDatabase
 import bou.amine.apps.mteo.persistence.entities.LocationView
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.input.input
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -38,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         db = Room.databaseBuilder(
             applicationContext,
             AppDatabase::class.java, "mteo-database"
-        ).build()
+        ).addMigrations(MIGRATION_1_2).build()
 
         thread {
             val locations = db.locationDao().locations()
@@ -109,10 +112,14 @@ class MainActivity : AppCompatActivity() {
             override fun onLocationChanged(location: Location) {
                 Toast.makeText(this@MainActivity, "location", Toast.LENGTH_SHORT).show()
                 mLocationManager.removeUpdates(this)
-                currentLocation = LocationView(location.latitude, location.longitude)
-                fetchForecastData()
-                thread {
-                    db.locationDao().insertLocation(currentLocation)
+                MaterialDialog(this@MainActivity).show {
+                    input { _, text ->
+                        currentLocation = LocationView(location.latitude, location.longitude, text.toString())
+                        fetchForecastData()
+                        thread {
+                            db.locationDao().insertLocation(currentLocation)
+                        }
+                    }
                 }
             }
         }

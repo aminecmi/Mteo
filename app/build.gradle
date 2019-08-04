@@ -86,6 +86,10 @@ dependencies {
     // Dialog for adding a new location
     implementation 'com.afollestad.material-dialogs:core:3.1.0'
     implementation 'com.afollestad.material-dialogs:input:3.1.0'
+
+    // drawer
+    implementation 'co.zsmb:materialdrawer-kt:2.0.1'
+    implementation "androidx.annotation:annotation:1.1.0"
 }
 
 

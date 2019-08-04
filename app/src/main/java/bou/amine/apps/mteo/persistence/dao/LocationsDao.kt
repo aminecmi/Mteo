@@ -1,9 +1,6 @@
 package bou.amine.apps.mteo.persistence.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import bou.amine.apps.mteo.persistence.entities.LocationView
 
 @Dao
@@ -13,4 +10,7 @@ interface LocationsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertLocation(vararg location: LocationView)
+
+    @Delete
+    fun deleteLocation(tag: LocationView)
 }

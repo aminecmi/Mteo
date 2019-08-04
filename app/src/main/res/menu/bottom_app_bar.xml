@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/alerts"
+            android:icon="@drawable/ic_error_outline"
+            android:title="Alerts"
+            android:iconTint="#FFFFFFFF"
+            app:showAsAction="always"/>
+    <item
+            android:id="@+id/currently"
+            android:icon="@drawable/ic_cloud_circle"
+            android:title="Currently"
+            android:iconTint="#FFFFFFFF"
+            app:showAsAction="always"/>
+    <item
+            android:id="@+id/daily"
+            android:icon="@drawable/ic_view_day"
+            android:title="Daily"
+            android:iconTint="#FFFFFFFF"
+            app:showAsAction="always"/>
+    <item
+            android:id="@+id/hourly"
+            android:icon="@drawable/ic_access_time"
+            android:title="Hourly"
+            android:iconTint="#FFFFFFFF"
+            app:showAsAction="always"/>
+    <item
+            android:id="@+id/minutely"
+            android:icon="@drawable/ic_hourglass_empty"
+            android:title="Minutely"
+            android:iconTint="#FFFFFFFF"
+            app:showAsAction="always"/>
+</menu>

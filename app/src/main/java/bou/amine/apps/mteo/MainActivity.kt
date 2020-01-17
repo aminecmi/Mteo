@@ -135,6 +135,7 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onResponse(call: Call<ForecastResponse>, response: Response<ForecastResponse>) {
                     Toast.makeText(this@MainActivity, "Ok", Toast.LENGTH_LONG).show()
+                    textView.setText(response.body()?.hourly.toString())
                     swipeRefreshLayout.isRefreshing = false
                 }
 
